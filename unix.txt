@@ -1,0 +1,28 @@
+cd
+ cd
+cd /home/user/public /home/user/Public
+..
+ls Public
+ cd Public
+ls
+ls -a
+cd 
+ pwd
+cd $home
+pwd
+cd Documents
+ls
+clear
+pwd
+cd ..
+mkdir torry
+cat > ./torry/f1.txt
+cd torry
+ mkdir harries
+cat > ./harries/file2.txt
+cd
+pwd
+ls
+ls ./torry/harries
+cat ls
+./torry/harries/file2.txt
