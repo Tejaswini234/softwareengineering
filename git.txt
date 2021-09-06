@@ -1,0 +1,37 @@
+File push
+go to localrepo director and open the  gitBash
+1. create directory
+2. cd to the new created director
+3. create a new file  : touch demo.txt
+4. git init :---> curr directory
+5  git add demo.txt
+6 git commit -m message
+7. git remote add origin https://github.com/mythsubu1073busfund/neweclipserepo1.git
+8. git removte -v
+9. git push origin master
+
+ 
+
+File pull from remote  repository
+
+ 
+
+1. git init demo_repo
+2. git pull https://github.com/mythsubu1073busfund/neweclipserepo1.git
+
+ 
+
+
+File push using clone
+1. go to localrepo director and open the  gitBash
+2. git clone https://github.com/mythsubu1073busfund/neweclipserepo1
+3. cd neweclipserepo1
+4, Create a project in eclipse and give path : browse and give the path:local repository
+5. ls
+   /scr /bin
+
+ 
+
+6. git add .
+7. git commit -m message
+8. git push origin master
