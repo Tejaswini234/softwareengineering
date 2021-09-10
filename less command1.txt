@@ -1,0 +1,53 @@
+LESS
+(TEJASWINI N) team1
+
+1. View a text file with less
+As showed in the syntax, you can use the less command to view a file in the following fashion:
+less [option]<filename>
+
+2. Exit from less
+If you are not used to of less command, you might struggle to find how to exit less. Trust me it’s not at all complicated. Simply press ‘q’ at any given point to exit from less.
+
+3. Moving around in less
+The output of less is divided into sort of pages. You’ll see only the text that fills up to your terminal screen.
+Up arrow – Move one line up
+Down arrow – Move one line down
+Space or PgDn – Move one page down
+b or PgUp – Move one page up
+g – Move to the beginning of the file
+G – Move to the end of the file
+ng – Move to the nth line
+
+4. Display line numbers with less
+If you want to see the line numbers in the less command output, you can use the option N in the following manner:
+
+less -N <filename>
+
+5. Finding text in less
+If you have a large text file, it’s better to search for a specific piece of text rather than reading it line by line in order to find it manually.
+
+To find a word or phrase or even a regex pattern, press / and type whatever you want to find.
+
+/pattern
+
+6.View multiple files with less command
+
+
+To open multiple files with less, simply input the file names one by one:
+
+less <filename1> <filename2> <filename3>
+:n to move next file
+:p to move to previous file
+
+7. less -X file name
+save the file name on screen when file exits
+
+8.less -S file name
+long line can be seen by side wrapping.
+
+9.less--version      to know the version of less
+ 
+10. less -m file name
+ show more detailed prompt including file position.
+
+
