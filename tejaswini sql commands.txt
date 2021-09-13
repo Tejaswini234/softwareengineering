@@ -1,0 +1,32 @@
+use hr
+select employee_id,last_name,salary,department_id from employees;
+select department_id,location_id from departments;
+select salary,(salary*100) from employees;
+select commission_pct,last_name from employees;
+select salary*commission_pct from employees;
+
+select concat(salary,last_name) from employees;
+select concat("salary" work as"last_name")newwork from employees;
+select distinct department_id from employees;
+select employee_id,last_name,department_id from employees where department_id=90;
+select employee_id,last_name,department_id from employees where department_id=90;select employee_id,last_name,department_id from employees where department_id=90;
+select employee_id,last_name,department_id from employees where last_name= 'King';
+select hire_date,salary,last_name ,DATE_FORMAT(hire_date,'%W %D %M %Y') from employees;
+select salary,last_name from employees where salary <>8000;
+select salary, last_name from employees where salary between 5000 and 9000;
+select salary,last_name,manager_id from employees where manager_id in (100,101);
+select salary,last_name from employees where last_name like 'S%';
+select salary,last_name from employees where manager_id IS NULL;
+select employee_id,last_name,job_id,salary from employees where((salary >= 5000) and  (job_id like '%MAN%'));
+select employee_id from employees where employee_id NOT IN 90;
+select last_name,job_id,salary from employees where((job_id = 'SA_REP') OR (job_id = 'AD_PRES')) and (salary>15000);
+select hire_date,last_name from employees;
+ORDER BY hire_date;
+select concat('hello','world');
+select substr('helloworld',1,5);
+select length('helloworld');
+select instr('helloworld' , 'w');
+select replace('jack and jue','3','C!');
+select employee_id,concat(first_name,last_name) Name,job_id,length(last_name),instr(last_name,'a') 'contains a'
+from employees where
+substr(job_id,4)='REP';
