@@ -1,0 +1,165 @@
+db.customer.insert({first_name:"myth",last_name:"subbu"});
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({first_name:"teju",last_name:"vinu"});
+WriteResult({ "nInserted" : 1 })
+> db.customer.find();
+{ "_id" : ObjectId("6142e4dca630ccdfe1118b2c"), "first_name" : "myth", "last_name" : "subbu" }
+{ "_id" : ObjectId("6142e54ba630ccdfe1118b2d"), "first_name" : "teju", "last_name" : "vinu" }
+> db.customer.find().pretty();
+{
+        "_id" : ObjectId("6142e4dca630ccdfe1118b2c"),
+        "first_name" : "myth",
+        "last_name" : "subbu"
+}
+{
+        "_id" : ObjectId("6142e54ba630ccdfe1118b2d"),
+        "first_name" : "teju",
+        "last_name" : "vinu"
+}
+> db.customer.insert([{first_name:"dilip",last_name:"Rao"},{first_name:"Sourav",last_name:"Gangauly"}]);
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 2,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> show collections> show collections
+customer
+> db.customer.insert([{first_name:"suhas",last_name:"Rao",gender:"male"},{first_name:"sai",last_name:"h",gender:"male"}]);
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 2,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.customer.find();
+{ "_id" : ObjectId("6142e4dca630ccdfe1118b2c"), "first_name" : "myth", "last_name" : "subbu" }
+{ "_id" : ObjectId("6142e54ba630ccdfe1118b2d"), "first_name" : "teju", "last_name" : "vinu" }
+{ "_id" : ObjectId("6142e73fa630ccdfe1118b2e"), "first_name" : "dilip", "last_name" : "Rao" }
+{ "_id" : ObjectId("6142e73fa630ccdfe1118b2f"), "first_name" : "Sourav", "last_name" : "Gangauly" }
+{ "_id" : ObjectId("6142e95ca630ccdfe1118b30"), "first_name" : "suhas", "last_name" : "Rao", "gender" : "male" }
+{ "_id" : ObjectId("6142e95ca630ccdfe1118b31"), "first_name" : "sai", "last_name" : "h", "gender" : "male" }
+> db.customer.update({first_name:"myth",last_name:"subbu",gender:"female"});
+uncaught exception: Error: need an update object or pipeline :
+DBCollection.prototype._parseUpdate@src/mongo/shell/collection.js:461:15
+DBCollection.prototype.update@src/mongo/shell/collection.js:510:18
+@(shell):1:1
+> db.customer.update({first_name:"myth"}{first_name:"myth",last_name:"subbu",gender:"female"});
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:38
+> db.customer.update({first_name:"myth"},{first_name:"myth",last_name:"subbu",gender:"female"});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.customer.update({first_name:"teju"},{$set:gender:"female"});
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:51
+> db.customer.update({first_name:"teju"},{$set:{gender:"female"}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>> db.customer.find().pretty();
+> db.customer.update({first_name:"teju"},{$set:gender:"female"});
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:51
+> db.customer.update({first_name:"teju"},{$set:gender:"female"});
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:51
+> db.customer.update({first_name:"teju"},{$set:gender:"female"});
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:51
+> db.customer.update({first_name:"teju"},{$set:{gender:"female"}});
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.customer.insert({first_name:"teju",last_name:"vinu"});
+WriteResult({ "nInserted" : 1 })
+> db.customer.find().pretty();
+{
+        "_id" : ObjectId("61441989dbef9d4da54bfb8e"),
+        "first_name" : "teju",
+        "last_name" : "vinu"
+}
+> db.customer.insert({first_name:"suhas",last_name:"vinu"});
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({first_name:"shiba",last_name:"vinu"});
+WriteResult({ "nInserted" : 1 })
+> db.customer.insert({first_name:"shashi",last_name:"vinu"});
+WriteResult({ "nInserted" : 1 })
+> db.customer.update({gender:"male"},{set:{status:"MV"}},{multi:true});
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "multi update is not supported for replacement-style update"
+        }
+})
+> db.customer.update({gender:"male"},{$set:{status:"MV"}},{multi:true});
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.customer.insert({first_name:"shashi",last_name:"kala"});
+WriteResult({ "nInserted" : 1 })
+> ^C
+bye
+
+C:\Program Files\MongoDB\Server\5.0\bin>uncaught exception: TypeError: bulkResult.upserted is undefined :
+WriteResult@src/mongo/shell/bulk_api.js:117:1
+WriteResult@src/mongo/shell/bulk_api.js:108:20
+@(shell):1:1
+> > db.customer.find().pretty();
+uncaught exception: SyntaxError: expected expression, got '>' :
+@(shell):1:0
+> {
+...         "_id" : ObjectId("61441989dbef9d4da54bfb8e"),
+...         "first_name" : "teju",
+...         "last_name" : "vinu"
+... }
+uncaught exception: SyntaxError: unexpected token: ':' :
+@(shell):2:14
+> > db.customer.insert({first_name:"suhas",last_name:"vinu"});
+uncaught exception: SyntaxError: expected expression, got '>' :
+@(shell):1:0
+> WriteResult({ "nInserted" : 1 })
+uncaught exception: TypeError: bulkResult.upserted is undefined :
+WriteResult@src/mongo/shell/bulk_api.js:117:1
+WriteResult@src/mongo/shell/bulk_api.js:108:20
+@(shell):1:1
+> > db.customer.insert({first_name:"shiba",last_name:"vinu"});
+uncaught exception: SyntaxError: expected expression, got '>' :
+@(shell):1:0
+> WriteResult({ "nInserted" : 1 })
+uncaught exception: TypeError: bulkResult.upserted is undefined :
+WriteResult@src/mongo/shell/bulk_api.js:117:1
+WriteResult@src/mongo/shell/bulk_api.js:108:20
+@(shell):1:1
+> > db.customer.insert({first_name:"shashi",last_name:"vinu"});
+uncaught exception: SyntaxError: expected expression, got '>' :
+@(shell):1:0
+> WriteResult({ "nInserted" : 1 })
+uncaught exception: TypeError: bulkResult.upserted is undefined :
+WriteResult@src/mongo/shell/bulk_api.js:117:1
+WriteResult@src/mongo/shell/bulk_api.js:108:20 db.customer.find();
+{ "_id" : ObjectId("61441989dbef9d4da54bfb8e"), "first_name" : "teju", "last_name" : "vinu" }
+{ "_id" : ObjectId("614419d7dbef9d4da54bfb8f"), "first_name" : "suhas", "last_name" : "vinu", "gender" : "male", "multi" : true, "age" : 30 }
+{ "_id" : ObjectId("614419e4dbef9d4da54bfb90"), "first_name" : "shiba", "last_name" : "vinu" }
+{ "_id" : ObjectId("614419eedbef9d4da54bfb91"), "first_name" : "shashi", "last_name" : "vinu", "multi" : true, "status" : "fv", "gender" : "female" }
+{ "_id" : ObjectId("61441b5fdbef9d4da54bfb92"), "first_name" : "shashi", "last_name" : "kala" }
+> db.customer.find({},{_id:0,first_name:1});
+{ "first_name" : "teju" }
+{ "first_name" : "suhas" }
+{ "first_name" : "shiba" }
+{ "first_name" : "shashi" }
+{ "first_name" : "shashi" }
+> db.customer.find({},{_id:0,first_name:1,age:1});
+{ "first_name" : "teju" }
+{ "first_name" : "suhas", "age" : 30 }
+{ "first_name" : "shiba" }
+{ "first_name" : "shashi" }
+{ "first_name" : "shashi" }
+> db.customer.find({gender:"male"},{_id:0,first_name:1,last_name:1});
+{ "first_name" : "suhas", "last_name" : "vinu" }
+>
+db.customer.remove({first_name:"shashi"});
