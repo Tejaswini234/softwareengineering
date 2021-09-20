@@ -1,0 +1,105 @@
+[03:27] Mythili G (Guest)
+package com.th;
+import java.util.Scanner;
+public class Main {​​​​​
+
+    public static void main(String[] args) {​​​​​
+    //int num1=10, num2=20;
+        Scanner sc  = new Scanner(System.in);
+       /* System.out.println("Enter two numbers");
+        int num1 = sc.nextInt();
+        int num2 = sc.nextInt();
+        int sum = num1+num2;
+        System.out.println("sum = "+sum);*/
+        /*System.out.println("to print given number is even or odd ");
+        System.out.println("Enter the number :");
+        int num = sc.nextInt();
+        if (num%2==0)
+            System.out.println(num+" is a even number");
+        else
+            System.out.println(num+" is a odd number");*/
+        /*System.out.println("finding largest of 3 nos. using ternary operator");
+        System.out.println(" enter three numbers :");
+        int n1 = sc.nextInt();
+        double n2 = sc.nextDouble();
+        long n3 = sc.nextLong();
+        double lar1 = (n1>n2)?n1:n2;
+        double lar2 = (lar1>n3)?lar1:n3;
+        System.out.println("largest number: "+lar2);*/
+        // how to give nested ternary operators :
+        // type casting :
+        //1. implicit
+        //2. explicit
+        /*float f1 = 13.33F;  // on default any floating point literal
+                           // is considered as double in java
+        double d1 = f1;   // implicit conversion
+        float f2  = (float)d1;  // d1---> 8bytes , f2---> 4 bytes
+                                // explicit conversion
+        int i1 = (int)d1; // explicit conversion, fractional part is truncated
+        System.out.println(" f2 value: "+f2);
+        System.out.println(" i1 value: "+i1);*/
+       /* System.out.println(" d1 value: "+d1);
+        System.out.printf(" formatted d1 : %.2f ",d1);*/
+        // unary operator : operator working on single operand
+        //   ++i  ---> pre increment, i++ ---> post increment
+          /*int i=10;
+          int ans = ++i;  // increment and assign
+          System.out.println(i+"   "+ans);  // i value is 11
+          int j=15;
+          int ans1 = j++;  // assign and increment
+          System.out.println(j+"   "+ans1);*/
+          /*System.out.println("Enter the number to be reversed: ");
+          int num = sc.nextInt();*/
+         /* int revnum= reverseNum(num);
+        System.out.println("Reverse of "+num+" is : "+revnum);*/
+        //System.out.println("Reverse of "+num+" is : "+reverseNum(num));
+        /*System.out.println("Enter  a  integer value : ");
+        int num = sc.nextInt();
+        if (isPrime(num))
+            System.out.println("the number is prime");
+        else
+            System.out.println("the number is not prime");*/
+        System.out.println("Enter a integer value:");
+        int num = sc.nextInt();
+        long fact = factorial(num);
+        System.out.println("factorial of "+num+"  is :"+fact);
+    }​​​​​
+
+    public static long factorial(int num)
+    {​​​​​
+         long f=1;
+         for (int i=1;i<=num;i++)
+             f*=i;
+         return f;
+    }​​​​​
+
+
+
+     public static int reverseNum(int n)
+     {​​​​​
+         int rem=0, revnum=0;
+         while (n!=0){​​​​​
+             rem = n %10;
+             revnum = revnum*10+rem;
+             n = n/10;
+         }​​​​​
+          return revnum;
+     }​​​​​
+
+    public static boolean isPrime(int num)
+    {​​​​​
+         boolean  flag = true;
+        for (int i=2;i<=(num/2);i++)
+        {​​​​​
+            if (num %i == 0)
+            {​​​​​
+                flag =false;
+                break;
+            }​​​​​
+        }​​​​​
+
+         return flag;
+    }​​​​​
+}​​​​​
+
+
