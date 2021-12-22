@@ -1,0 +1,136 @@
+[10:23 AM] Chintan (Guest)
+Requirement Zoiva wants to retrieve Apple’s electronic products from their catalog to create a report on the inventory and sales.They also want to check if these smartphones have black and silver colors, and release years as 2017-2018 (both inclusive) and price above 55000 rupees are available or not, as these phones are in maximum demand.SolutionTo retrieve products from the catalog, we can use the find() method with certain operators to filter as per our requirement.
+
+[10:25 AM] Chintan (Guest)
+Syntax:
+
+     db.collection_name.find()
+
+[10:31 AM] Chintan (Guest)
+db.product_catalog.insert ( [
+
+{​​​​​​
+
+prodid:7000012,
+
+prodname:"Java for Dummies",
+
+publisher:"John Wiley",
+
+genre: {​​​​​​academic: "technical"}​​​​​​,
+
+ISBN:18407806,
+
+price:400
+
+}​​​​​​,
+
+{​​​​​​
+
+prodid:7000013,
+
+prodname:"Big Data: Principles and Best Practices",
+
+publisher:"Dreamtech",
+
+genre: {​​​​​​academic: "technical"}​​​​​​,
+
+price:700
+
+}​​​​​​,
+
+{​​​​​​
+
+prodid: 7000001,
+
+prodname: "iphone 7",
+
+manufacturer: "apple",
+
+categories: {​​​​​​main:"electronics",sub:"smartphones"}​​​​​​,
+
+year_of_launch: 2017,
+
+price: 60000,
+
+colors: ["silver","black","gold","rosegold"]
+
+}​​​​​​
+
+] )
+
+[10:32 AM] Chintan (Guest)
+db.product_catalog.insert (
+
+{​​​​​​
+
+prodid:7000010,
+
+prodname:"nosql distilled",
+
+publisher:"Addison-Wesley",
+
+genre: {​​​​​​academic: "technical"}​​​​​​,
+
+ISBN:1234567,
+
+price:400
+
+}​​​​​​
+
+)
+
+[10:32 AM] Chintan (Guest)
+Example:  db.product_catalog.find().pretty()
+
+[10:34 AM] Chintan (Guest)
+Syntax:
+
+     db.collection_name.find( {​​​​​query}​​​​​, {​​​​​projection}​​​​​ )
+
+[10:36 AM] Chintan (Guest)
+Example:
+
+db.product_catalog.find( {​​​​​ publisher: "Dreamtech" }​​​​​ )
+
+[10:39 AM] Chintan (Guest)
+ProjectionThe second parameter, or the second document is for the projection. This parameter specifies which fields are to be returned in the documents that match the query selection criteria. The projection parameter document is usually written as  {​​​​​​ field1: <value>, field2: <value> ... }​​​​​​
+
+[10:39 AM] Chintan (Guest)
+{​​​​​ field1: <value>, field2: <value> ... }​​​​​
+
+[10:40 AM] Chintan (Guest)
+Example:
+
+db.product_catalog.find( {​​​​​ publisher: "Dreamtech" }​​​​​, {​​​​​ prodname: 1, price: 1 }​​​​​ )
+
+[10:44 AM] Chintan (Guest)
+*
+
+[10:44 AM] Chintan (Guest)
+{}
+
+[10:44 AM] Rohith Surya
+db.collection.find({_id:0}).pretty()
+
+[10:45 AM] Darshan Marakall
+db.product_catalog.find({},{_id:0}).pretty()
+
+[10:45 AM] Chintan (Guest)
+db.product_catalog.find()
+
+[10:45 AM] Shivakumar Hombal
+db.product_catalog.find({},{_id:0}).pretty()
+
+[10:46 AM] Chintan (Guest)
+db.product_catalog.find()
+
+[10:46 AM] Chintan (Guest)
+db.product_catalog.find({​​​​}​​​​)
+
+[10:46 AM] Chintan (Guest)
+db.product_catalog.find({​​​​}​​​​,{​​​​}​​​​)
+
+[10:46 AM] Chintan (Guest)
+db.product_catalog.find({​​​​}​​​​,{​​​​_id:0}​​​​)
+
