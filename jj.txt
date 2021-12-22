@@ -29,7 +29,8 @@ price:400
 
 prodid:7000013,
 
-prodname:"Big Data: Principles and Best Practices",
+prodname:"Big Data: Principles and Best Practices",db.product_catalog.find( {$and:[{manufacturer: "apple"},{colors:{$all:["black","silver"]}},{year_of_launch:{$in:[2017,2018]}},{price:{$gte:55000}}]} )
+
 
 publisher:"Dreamtech",
 
