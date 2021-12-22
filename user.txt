@@ -1,0 +1,25 @@
+[
+{
+Userid: 'amy01',
+Name: 'Amy James',
+Gender: 'Female',
+Location: 'India',
+Age: 19,
+University: 'Delhi University'
+},
+{
+Userid: 'jimmy999',
+Name: 'Jim Watson',
+From: 'Canada',
+Location: 'Mexico',
+Office: 'Google'
+},
+{
+Userid: 'rachel_11',
+Name: 'Rachel Greene',
+Location: 'New Work',
+PhoneNo: 123456789,
+University: 'Vassar University',
+Graduated: 2014
+}
+]
