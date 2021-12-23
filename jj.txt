@@ -1,137 +1,20 @@
-[10:23 AM] Chintan (Guest)
-Requirement Zoiva wants to retrieve Apple’s electronic products from their catalog to create a report on the inventory and sales.They also want to check if these smartphones have black and silver colors, and release years as 2017-2018 (both inclusive) and price above 55000 rupees are available or not, as these phones are in maximum demand.SolutionTo retrieve products from the catalog, we can use the find() method with certain operators to filter as per our requirement.
-
-[10:25 AM] Chintan (Guest)
-Syntax:
-
-     db.collection_name.find()
-
-[10:31 AM] Chintan (Guest)
-db.product_catalog.insert ( [
-
-{​​​​​​
-
-prodid:7000012,
-
-prodname:"Java for Dummies",
-
-publisher:"John Wiley",
-
-genre: {​​​​​​academic: "technical"}​​​​​​,
-
-ISBN:18407806,
-
-price:400
-
-}​​​​​​,
-
-{​​​​​​
-
-prodid:7000013,
-
-prodname:"Big Data: Principles and Best Practices",db.product_catalog.find( {$and:[{manufacturer: "apple"},{colors:{$all:["black","silver"]}},{year_of_launch:{$in:[2017,2018]}},{price:{$gte:55000}}]} )
-
-
-publisher:"Dreamtech",
-
-genre: {​​​​​​academic: "technical"}​​​​​​,
-
-price:700
-
-}​​​​​​,
-
-{​​​​​​
-
-prodid: 7000001,
-
-prodname: "iphone 7",
-
-manufacturer: "apple",
-
-categories: {​​​​​​main:"electronics",sub:"smartphones"}​​​​​​,
-
-year_of_launch: 2017,
-
-price: 60000,
-
-colors: ["silver","black","gold","rosegold"]
-
-}​​​​​​
-
-] )
-
-[10:32 AM] Chintan (Guest)
-db.product_catalog.insert (
-
-{​​​​​​
-
-prodid:7000010,
-
-prodname:"nosql distilled",
-
-publisher:"Addison-Wesley",
-
-genre: {​​​​​​academic: "technical"}​​​​​​,
-
-ISBN:1234567,
-
-price:400
-
-}​​​​​​
-
-)
-
-[10:32 AM] Chintan (Guest)
-Example:  db.product_catalog.find().pretty()
-
-[10:34 AM] Chintan (Guest)
-Syntax:
-
-     db.collection_name.find( {​​​​​query}​​​​​, {​​​​​projection}​​​​​ )
-
-[10:36 AM] Chintan (Guest)
-Example:
-
-db.product_catalog.find( {​​​​​ publisher: "Dreamtech" }​​​​​ )
-
-[10:39 AM] Chintan (Guest)
-ProjectionThe second parameter, or the second document is for the projection. This parameter specifies which fields are to be returned in the documents that match the query selection criteria. The projection parameter document is usually written as  {​​​​​​ field1: <value>, field2: <value> ... }​​​​​​
-
-[10:39 AM] Chintan (Guest)
-{​​​​​ field1: <value>, field2: <value> ... }​​​​​
-
-[10:40 AM] Chintan (Guest)
-Example:
-
-db.product_catalog.find( {​​​​​ publisher: "Dreamtech" }​​​​​, {​​​​​ prodname: 1, price: 1 }​​​​​ )
-
-[10:44 AM] Chintan (Guest)
-*
-
-[10:44 AM] Chintan (Guest)
-{}
-
-[10:44 AM] Rohith Surya
-db.collection.find({_id:0}).pretty()
-
-[10:45 AM] Darshan Marakall
-db.product_catalog.find({},{_id:0}).pretty()
-
-[10:45 AM] Chintan (Guest)
-db.product_catalog.find()
-
-[10:45 AM] Shivakumar Hombal
-db.product_catalog.find({},{_id:0}).pretty()
-
-[10:46 AM] Chintan (Guest)
-db.product_catalog.find()
-
-[10:46 AM] Chintan (Guest)
-db.product_catalog.find({​​​​}​​​​)
-
-[10:46 AM] Chintan (Guest)
-db.product_catalog.find({​​​​}​​​​,{​​​​}​​​​)
-
-[10:46 AM] Chintan (Guest)
-db.product_catalog.find({​​​​}​​​​,{​​​​_id:0}​​​​)
-
+db.product_catalog.insert([
+{ "manufacturer" : "apple", "price" : 20000, "display" : '4.7 inch Retina HD', "model" : 'iPhone 6S' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "samsung", "price" : 15000, "android" : 'Oreo', "model" : 'Note 4' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "samsung", "price" : 5450, "processor" : 'Exynos 8895 Octa Core', "model" : 'Galaxy S8' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "apple", "price" : 50000, "display" : '5.5 inch Retina HD', "model" : 'iPhone 6 plus' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "samsung", "price" : 10570, "processor" : 'Exynos 8890', "model" : 'Galaxy S7 Edge' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "lenovo", "price" : 10000, "android" : 'Oreo', "model" : 'K8 Plus' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "lenovo", "price" : 9920, "battery" : 4000, "model" : 'K6 Note' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "lenovo", "price" : 10000, "material" : 'metal unibody', "model" : 'Vibe K5 Note' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "apple", "price" : 19999, "camera" : '12 MP', "model" : 'iPhone SE', "categories": {'main':'electronics', 'sub': 'smartphones'} },
+{ "manufacturer" : "mi", "price" : 20000, "android" : 'Oreo', "model" : 'Max 2' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "mi", "price" : 33000, "camera" : '12 MP', "model" : 'Mix 2' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "mi", "price" : 15000, "memory" : '64 GB', "model" : 'A1' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "mi", "price" : 15000, "display" : '5 inch HD', "model" : '4i' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "moto", "price" : 10000, "android" : 'Nougat', "model" : 'E4 Plus' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "moto", "price" : 7000, "ram" : '2 GB', "model" : 'C Plus' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "samsung", "price" : 14000, "ram" : '4 GB', "model" : 'Galaxy On Max', "categories": {'main':'electronics', 'sub': 'smartphones'} },
+{ "manufacturer" : "honor", "price" : 18000, "battery" : 3340, "model" : '9i' , "categories": {'main':'electronics', 'sub': 'smartphones'}},
+{ "manufacturer" : "google", "price" : 45000, "android" : 'Oreo', "model" : 'Pixel 2', "categories": {'main':'electronics', 'sub': 'smartphones'} }
+])
